@@ -1,0 +1,7 @@
+outcome,N,R2,adjR2,F,omnibus_p,sig_predictors(p<.05)
+horiz_mean_ST,59,0.064,-0.044,0.59,0.7367,none
+sag_peak_WU,59,0.065,-0.043,0.6,0.7283,none
+SCM_Peak_MVC_WanT,58,0.082,-0.026,0.76,0.6043,none
+SCM_Bilateral_Asymmetry,57,0.115,0.009,1.08,0.3866,none
+semisp_C4_LongAP,53,0.15,0.039,1.35,0.2531,none
+semisp_POP_LongAP_R,54,0.119,0.006,1.06,0.4026,none

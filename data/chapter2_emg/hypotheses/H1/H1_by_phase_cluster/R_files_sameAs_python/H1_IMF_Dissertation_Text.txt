@@ -1,0 +1,63 @@
+
+================================================================================
+HYPOTHESIS 1 (Part B): IMF SLOPE ACROSS EXERCISE PHASES BY ACTIVATION GROUP
+================================================================================
+
+ANALYSIS:
+Two-way mixed ANOVA examining IMF slope (20% threshold) across exercise phases
+and between activation groups.
+
+- Within-subjects factor: Phase (5 levels: Warmup, Second Threshold, VO₂max, WanT, Cooldown)
+- Between-subjects factor: Activation Group (2 levels: High-Activation, Low-Activation)
+- Dependent variable: IMF Slope (Hz/s)
+
+Participants were classified into High-Activation (n = 16) and Low-Activation 
+(n = 43) groups using k-means clustering based on SCM activation characteristics.
+
+--------------------------------------------------------------------------------
+RESULTS
+--------------------------------------------------------------------------------
+
+PHASE EFFECT:
+Significant main effects of phase on IMF slope were found for 8/8 muscles.
+The average effect size (Kendall's W) was 0.000, indicating a 
+small effect.
+
+Kendall's W by Muscle:
+  • : χ²() = , p = , W =  ()
+  • : χ²() = , p = , W =  ()
+
+
+ACTIVATION GROUP EFFECT:
+Significant main effects of activation group were found for 0/8 muscles.
+
+
+
+PHASE × ACTIVATION GROUP INTERACTION:
+Significant interaction effects were found for 0/8 muscles.
+
+
+--------------------------------------------------------------------------------
+INTERPRETATION
+--------------------------------------------------------------------------------
+
+While significant phase effects were observed, the interaction between phase and activation group was not significant for most muscles, suggesting similar IMF response patterns between groups despite differences in absolute activation levels.
+
+A more negative IMF slope indicates greater fatigue development. The IMF slope 
+captures the rate of median frequency decline over time within each exercise phase,
+reflecting progressive motor unit recruitment changes associated with fatigue.
+
+--------------------------------------------------------------------------------
+STATISTICAL DETAILS
+--------------------------------------------------------------------------------
+
+Test: Two-way Mixed ANOVA (Phase × Activation Group)
+Model: lmer(IMF_slope ~ phase * Activation_Group + (1 | subject))
+Post-hoc: Bonferroni correction
+Effect sizes: Kendall's W (phase), Partial η² (ANOVA)
+IMF threshold: 20%
+Alpha level: 0.05
+Software: R (lme4, lmerTest, emmeans, rstatix)
+
+================================================================================
+

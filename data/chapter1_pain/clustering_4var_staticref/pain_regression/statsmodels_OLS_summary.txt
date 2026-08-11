@@ -1,0 +1,28 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            at_home_VAS   R-squared:                       0.300
+Model:                            OLS   Adj. R-squared:                  0.248
+Method:                 Least Squares   F-statistic:                     5.789
+Date:                Sun, 07 Jun 2026   Prob (F-statistic):           0.000596
+Time:                        09:21:35   Log-Likelihood:                -124.03
+No. Observations:                  59   AIC:                             258.1
+Df Residuals:                      54   BIC:                             268.5
+Df Model:                           4                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               2.8475      0.270     10.566      0.000       2.307       3.388
+horiz_mean_ST       0.9432      0.277      3.409      0.001       0.388       1.498
+sag_slope_100W     -0.0616      0.291     -0.212      0.833      -0.645       0.522
+sag_drift_WU_CD    -0.2140      0.272     -0.787      0.435      -0.759       0.331
+sag_peak_WU         0.7453      0.290      2.573      0.013       0.165       1.326
+==============================================================================
+Omnibus:                        3.011   Durbin-Watson:                   2.139
+Prob(Omnibus):                  0.222   Jarque-Bera (JB):                1.670
+Skew:                          -0.082   Prob(JB):                        0.434
+Kurtosis:                       2.192   Cond. No.                         1.50
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

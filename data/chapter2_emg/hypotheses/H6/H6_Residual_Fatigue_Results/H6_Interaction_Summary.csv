@@ -1,0 +1,9 @@
+DV,Grouping,n_units,n_sig
+%MVC,Cluster,8,3
+%MVC,RPE,8,0
+%MVC,VO2max,8,1
+%MVC,WanT,8,0
+CCI,Cluster,12,0
+CCI,RPE,12,3
+CCI,VO2max,12,1
+CCI,WanT,12,4

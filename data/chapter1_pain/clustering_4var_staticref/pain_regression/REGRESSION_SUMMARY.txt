@@ -1,0 +1,25 @@
+MULTIPLE REGRESSION (statsmodels OLS) — at-home VAS ~ 4 kinematic features
+====================================================================
+N = 59 | VAS mean 2.85 (range 0-8) | predictors z-scored.
+Parametric inference from statsmodels OLS; omnibus F & each coefficient ALSO
+tested by 20000 label permutations (VAS bounded/skewed).
+
+OMNIBUS:  R2 = 0.300  (adjusted 0.248)
+          F(4,54) = 5.79
+          parametric p = 5.96e-04 | permutation p = 0.0005
+
+COEFFICIENTS (standardized beta [95% CI], parametric p, permutation p, bivariate rho):
+  horiz_mean_ST    b=+0.943 [+0.39,+1.50] param_p=0.0012 perm_p=0.0016  rho=+0.42
+  sag_slope_100W   b=-0.062 [-0.65,+0.52] param_p=0.8331 perm_p=0.8588  rho=-0.09
+  sag_drift_WU_CD  b=-0.214 [-0.76,+0.33] param_p=0.4349 perm_p=0.4991  rho=-0.10
+  sag_peak_WU      b=+0.745 [+0.17,+1.33] param_p=0.0129 perm_p=0.0253  rho=+0.35
+
+INTERPRETATION (honest):
+  - Joint profile predicts at-home pain severity (R2=0.30, perm p=0.0005).
+  - Carriers = horizontal rotation + baseline (Warmup) flexion (significant).
+  - Drift & slope do NOT predict chronic pain -> reinforces acute/chronic
+    dissociation (drift carries ACUTE pain H6; baseline posture carries CHRONIC).
+  - CONFIRMATORY only (features pre-selected for pain); features near-independent
+    (|r|<=0.33) so R2 ~ additive not synergistic; in-sample R2 optimistic (use adj);
+    cross-sectional. Continuous generalization of the requested MANOVA; stronger
+    than the binned cluster comparison (p=0.026 -> p=0.0005).

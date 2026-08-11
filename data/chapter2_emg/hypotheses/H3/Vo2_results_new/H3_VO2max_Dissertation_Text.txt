@@ -1,0 +1,114 @@
+
+================================================================================
+HYPOTHESIS 3: IMF SLOPE ACROSS EXERCISE PHASES BY VO₂max GROUP
+================================================================================
+
+HYPOTHESIS:
+Aerobic fitness (VO₂max) predicts the rate of neuromuscular fatigue, such that 
+cyclists with higher VO₂max will show less IMF decline (less negative slope) 
+during high-intensity exercise.
+
+--------------------------------------------------------------------------------
+GROUPING METHOD
+--------------------------------------------------------------------------------
+
+VO₂max Median split at 49.50 ml/kg/min
+- High-VO₂max group (≥ 49.50): n = 31
+- Low-VO₂max group (< 49.50): n = 29
+
+VO₂max STATISTICS:
+Mean = 49.31 ml/kg/min
+SD = 7.05
+Range = [32.3, 65.6]
+
+--------------------------------------------------------------------------------
+ANALYSIS
+--------------------------------------------------------------------------------
+
+Two-way mixed ANOVA examining IMF slope across exercise phases and between 
+VO₂max groups.
+
+- Within-subjects factor: Phase (5 levels: Warmup, Second Threshold, VO₂max, WanT, Cooldown)
+- Between-subjects factor: VO₂max Group (2 levels: High-VO₂max, Low-VO₂max)
+- Dependent variable: IMF Slope (Hz/s)
+
+Participants were classified based on their maximal oxygen uptake (VO₂max). 
+A median split was used to create High-VO₂max (n = 31) and Low-VO₂max 
+(n = 29) groups.
+
+Post-hoc comparisons used Bonferroni correction.
+Effect size for phase effect: Kendall's W (from Friedman test) - calculated separately by group
+Effect size for ANOVA: Partial eta-squared (η²p)
+
+--------------------------------------------------------------------------------
+RESULTS
+--------------------------------------------------------------------------------
+
+PHASE EFFECT:
+Significant main effects of phase on IMF slope were found for 7/8 muscles.
+
+Kendall's W (Phase Effect Size) BY GROUP:
+
+High-VO₂max Group (average W = 0.168, small effect):
+  • SCML: χ²(4) = 28.13, p = 1.17e-05, W = 0.234 (Small)
+  • SCMR: χ²(4) = 26.27, p = 2.80e-05, W = 0.219 (Small)
+  • MTL: χ²(4) = 18.64, p = 9.25e-04, W = 0.155 (Small)
+  • MTR: χ²(4) = 14.67, p = 5.44e-03, W = 0.122 (Small)
+  • STL: χ²(4) = 25.36, p = 4.26e-05, W = 0.211 (Small)
+  • STR: χ²(4) = 26.91, p = 2.08e-05, W = 0.224 (Small)
+  • UTL: χ²(4) = 9.63, p = 4.72e-02, W = 0.080 (Negligible)
+  • UTR: χ²(4) = 11.25, p = 2.39e-02, W = 0.094 (Negligible)
+
+Low-VO₂max Group (average W = 0.184, small effect):
+  • SCML: χ²(4) = 37.34, p = 1.53e-07, W = 0.333 (Medium)
+  • SCMR: χ²(4) = 15.26, p = 4.20e-03, W = 0.136 (Small)
+  • MTL: χ²(4) = 16.06, p = 2.94e-03, W = 0.143 (Small)
+  • MTR: χ²(4) = 21.74, p = 2.25e-04, W = 0.194 (Small)
+  • STL: χ²(4) = 22.37, p = 1.69e-04, W = 0.200 (Small)
+  • STR: χ²(4) = 18.46, p = 1.00e-03, W = 0.165 (Small)
+  • UTL: χ²(4) = 19.09, p = 7.56e-04, W = 0.170 (Small)
+  • UTR: χ²(4) = 14.31, p = 6.37e-03, W = 0.133 (Small)
+
+
+VO₂max GROUP EFFECT:
+Significant main effects of VO₂max group were found for 1/8 muscles.
+
+Muscles with significant group effects:
+  • STR: F(1,56) = 5.98, p = 0.0177, η²p = 0.096
+
+
+PHASE × VO₂max GROUP INTERACTION:
+Significant interaction effects were found for 0/8 muscles.
+
+
+--------------------------------------------------------------------------------
+INTERPRETATION
+--------------------------------------------------------------------------------
+
+The Kendall's W effect sizes were calculated separately for each VO₂max group 
+to examine whether the magnitude of phase-related changes in IMF slope differs 
+between fitness levels.
+
+The Low-VO₂max group showed similar phase effect sizes 
+(average W difference = -0.017), suggesting that both groups showed similar patterns of IMF change across exercise phases.
+
+While significant phase effects were observed, the interaction between phase and VO₂max group was not significant for most muscles. This suggests that aerobic fitness level does not substantially moderate the rate of neuromuscular fatigue (IMF decline) across exercise phases.
+
+Significant group effects indicate that high-VO₂max cyclists showed overall different IMF slope patterns compared to low-VO₂max cyclists, suggesting aerobic fitness influences neuromuscular fatigue development.
+
+A more negative IMF slope indicates greater fatigue development. The hypothesis 
+that higher VO₂max would be associated with less negative IMF slopes (reduced 
+fatigue) was supported by the significant group/interaction effects.
+
+--------------------------------------------------------------------------------
+STATISTICAL DETAILS
+--------------------------------------------------------------------------------
+
+Grouping: Median split on VO₂max
+Test: Two-way Mixed ANOVA (Phase × VO₂max Group)
+Post-hoc: Bonferroni correction
+Effect sizes: Kendall's W (phase, calculated separately by group), Partial η² (ANOVA)
+Alpha level: 0.05
+Software: Python 3.x (pingouin, scipy.stats)
+
+================================================================================

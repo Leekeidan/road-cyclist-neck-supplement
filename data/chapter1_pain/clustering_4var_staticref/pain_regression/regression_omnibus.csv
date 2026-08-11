@@ -1,0 +1,2 @@
+N,predictors,R2,adj_R2,F,df1,df2,F_parametric_p,F_permutation_p,n_permutations,VAS_mean,VAS_min,VAS_max
+59,4,0.3001,0.2483,5.789,4,54,0.000596,0.0005,20000,2.85,0,8

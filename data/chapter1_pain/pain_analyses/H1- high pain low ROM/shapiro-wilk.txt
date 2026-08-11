@@ -1,0 +1,8 @@
+  Variable      W  p_value Normal
+                  vas 0.9044   0.0002     No
+    ROM_sagittal_WanT 0.9597   0.0519    Yes
+     ROM_frontal_WanT 0.4300   0.0000     No
+  ROM_horizontal_WanT 0.5487   0.0000     No
+  ROM_sagittal_Vo2max 0.9567   0.0400     No
+   ROM_frontal_Vo2max 0.3516   0.0000     No
+ROM_horizontal_Vo2max 0.7674   0.0000     No

@@ -1,0 +1,4 @@
+Angle_Plane,Bin_Size_deg,N_subjects,N_file,N_manual,Median_rho,Mean_rho,SD_rho,Wilcoxon_W_rho,Wilcoxon_p_rho,N_positive_rho,N_negative_rho,N_sig_individual,Median_slope_per100W,Mean_slope_per100W,SD_slope_per100W,Wilcoxon_W_slope,Wilcoxon_p_slope,Median_slope_per10pctWmax,Mean_slope_per10pctWmax,Wilcoxon_p_slope_pctWmax,N_positive_slope,N_negative_slope,Group_rho,Group_p,Group_n,Simpson_paradox,File_vs_Manual_MW_p
+Sagittal (Flexion/Extension),5,59,42,17,0.405,0.252,0.546,458.0,0.001285,41,18,20,3.04,4.93,9.23,363.0,8.1e-05,0.68,1.43,0.00013,41,18,0.044,0.292698,575,NO,0.5922
+Frontal (Lateral Bending),10,56,40,16,-0.066,0.039,0.65,726.0,0.554257,26,30,25,0.22,1.49,9.4,722.0,0.535298,0.09,0.46,0.546093,28,28,0.157,0.000249,542,YES,0.7509
+Horizontal (Rotation),20,58,41,17,-0.017,0.022,0.576,768.0,0.803518,27,29,18,-0.11,0.05,7.27,776.0,0.538214,-0.03,0.04,0.579868,24,34,0.056,0.183837,575,YES,0.0356

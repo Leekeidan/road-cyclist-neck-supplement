@@ -1,0 +1,49 @@
+
+================================================================================
+HYPOTHESIS 1: IMF SLOPE CORRELATES WITH RPE
+================================================================================
+
+HYPOTHESIS:
+A significant inverse correlation will exist between IMF decline and RPE—
+that is, as physiological fatigue increases (more negative IMF slope), 
+perceived exertion also rises.
+
+--------------------------------------------------------------------------------
+RESULTS
+--------------------------------------------------------------------------------
+
+OVERALL CORRELATION:
+A Spearman correlation analysis was conducted to examine the relationship 
+between objective fatigue (IMF slope) and subjective fatigue perception 
+(RPE) across cycling phases.
+
+Results revealed a significant inverse correlation 
+(ρ = -0.325, p < 0.001, n = 286).
+
+Effect size: Moderate (|ρ| = 0.325)
+
+PER-PHASE CORRELATIONS:
+  • Warmup: ρ = 0.123, p = 0.3576, n = 58 (No)
+  • SecondThreshold: ρ = -0.138, p = 0.3043, n = 57 (No)
+  • VO2max: ρ = -0.339, p = 0.0105, n = 56 (Yes)
+  • WanT: ρ = -0.291, p = 0.0280, n = 57 (Yes)
+  • Cooldown: ρ = -0.076, p = 0.5691, n = 58 (No)
+
+--------------------------------------------------------------------------------
+CONCLUSION
+--------------------------------------------------------------------------------
+
+Hypothesis 1 is SUPPORTED.
+
+The significant inverse correlation indicates that participants who exhibited greater physiological fatigue (more negative IMF slopes) reported higher perceived exertion.
+
+--------------------------------------------------------------------------------
+STATISTICAL DETAILS (for methods section)
+--------------------------------------------------------------------------------
+
+Test used: Spearman rank-order correlation (ρ)
+Justification: RPE is an ordinal scale (0-10)
+Alpha level: 0.05
+Software: Python 3.x (scipy.stats)
+
+================================================================================

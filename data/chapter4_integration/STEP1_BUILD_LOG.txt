@@ -1,0 +1,57 @@
+==============================================================================
+CHAPTER 4 INTEGRATION — STEP 1: build integrated table + kin x SCM cross-tab
+==============================================================================
+
+[Ch1] kinematic clusters: N = 60
+  cluster sizes: {0: 34, 1: 26}
+  mean sag_peak_WU by cluster: {0: 21.26, 1: 7.76} -> flexed = cluster 0
+  mean horiz_mean_ST by cluster: {0: 10.16, 1: -0.53}
+  phenotype sizes: {'Flexed-Rotated': 34, 'Neutral-Drifter': 26}
+
+[Ch2] SCM clusters: N = 59 (expect 59 complete)
+  cluster sizes: {0: 43, 1: 16} (expect 16 High / 43 Low)
+  mean SCM_Peak_MVC_WanT by cluster: {0: 67.4, 1: 241.0} -> High = cluster 1
+  phenotype sizes: {'Low-Activation': 43, 'High-Activation': 16}
+
+[check] combined_data_boolian_vas vs canonical SCM labels: raw-agree=0.93, flipped-agree=0.07 (n overlap=59)
+
+[Ch3] US morphology: N = 59 (expect 59; incl. 542 US-only)
+  semispinalis POP CSA available for 50 subjects
+
+[anthro] N = 60
+
+==============================================================================
+COVERAGE
+==============================================================================
+Total distinct subjects across all sources: 62
+  Ch1 kinematic           : 60
+  Ch2 SCM                 : 59
+  Ch3 US                  : 58
+  anthro/fitness/pain     : 60
+Subjects with all 3 domains: 55
+Subjects with >=2 domains   : 60
+
+Edge cases / asymmetric coverage:
+  in US but NOT in anthro core (expect 542 US-only): [542, 576]
+  in anthro core but NOT in US: [613, 619, 620]
+  in anthro core but NOT in Ch2 SCM (dropped/missing): [597]
+  in anthro core but NOT in Ch1 kin: []
+
+==============================================================================
+CROSS-TAB PREVIEW: Ch1 kinematic phenotype  x  Ch2 SCM-activation phenotype
+(Do flexed-kinematic and high-SCM-activation pick the SAME cyclists?)
+==============================================================================
+Subjects in BOTH Ch1 and Ch2: 59
+
+scm_pheno        High-Activation  Low-Activation
+kin_pheno                                       
+Flexed-Rotated                 6              27
+Neutral-Drifter               10              16
+
+Fisher exact: OR=0.356, p=0.1391
+Chi2=3.026, p=0.0819, dof=1, Cramer's V=0.226
+Concordance (flexed&high + neutral&low)/N = 0.373
+>>> NULL: kinematic and SCM-activation clusters do NOT align (independent axes).
+    Consistent with Ch1 H8 (SCM-activation pain-blind, kinematic pain-linked).
+
+[mechanism probe] baseline flexion (sag_peak_WU) High vs Low SCM: median 15.7 vs 14.9, Mann-Whitney p=0.523

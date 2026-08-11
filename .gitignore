@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# R
+.RData
+.Rhistory
+
+# OS / cloud artifacts
+.DS_Store
+desktop.ini
+
+# Raw recordings and full pipeline output live outside this repository
+Results/

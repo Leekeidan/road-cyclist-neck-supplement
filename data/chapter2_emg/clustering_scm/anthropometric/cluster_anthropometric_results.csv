@@ -1,0 +1,11 @@
+Variable,N_Low,N_High,Median_Low,Median_High,Mean_Low,Mean_High,U_statistic,p_value,Significant_uncorrected,alpha_Bonferroni,Survives_Bonferroni
+age,43,16,41.0,37.5,38.3,38.12,358.0,0.8177,False,0.005,False
+Height_cm,43,16,176.3,174.0,176.67,175.1,381.0,0.5336,False,0.005,False
+Weight_kg,43,16,74.1,77.1,74.52,78.82,262.5,0.1672,False,0.005,False
+BMI,43,16,23.94,26.09,23.77,25.7,216.0,0.0297,True,0.005,False
+Head_Circumference_cm,43,15,56.0,56.0,56.26,56.07,344.5,0.6934,False,0.005,False
+Neck_Circumference_cm,43,15,37.0,38.0,37.12,37.87,257.0,0.2414,False,0.005,False
+Fat_Percent,43,16,16.2,19.0,16.31,18.17,248.0,0.1033,False,0.005,False
+Years_Cycling,43,16,7.0,5.0,8.7,5.62,440.0,0.1024,False,0.005,False
+Vo2max,43,16,50.5,49.4,49.79,47.89,395.0,0.3892,False,0.005,False
+WanT,43,16,707.0,732.5,735.4,776.44,323.0,0.7267,False,0.005,False

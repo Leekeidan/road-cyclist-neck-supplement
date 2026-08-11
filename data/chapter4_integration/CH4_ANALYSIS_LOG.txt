@@ -1,0 +1,76 @@
+==========================================================================
+CHAPTER 4 — INTEGRATED ANALYSIS (regression engine + token MANOVA)
+==========================================================================
+
+Feature coverage:
+  horiz_mean_ST             60
+  sag_peak_WU               60
+  SCM_Peak_MVC_WanT         59
+  SCM_Bilateral_Asymmetry   58
+  semisp_C4_LongAP          56
+  semisp_POP_LongAP_R       57
+
+[A] Clustering complete-case N = 51   dropped: [541, 542, 576, 584, 597, 601, 602, 613, 614, 619, 620]
+
+[A] feature correlation matrix (z):
+                         horiz_mean_ST  sag_peak_WU  SCM_Peak_MVC_WanT  SCM_Bilateral_Asymmetry  semisp_C4_LongAP  semisp_POP_LongAP_R
+horiz_mean_ST                     1.00         0.12              -0.22                    -0.18              0.20                 0.23
+sag_peak_WU                       0.12         1.00              -0.00                    -0.03             -0.04                -0.02
+SCM_Peak_MVC_WanT                -0.22        -0.00               1.00                     0.48              0.08                 0.09
+SCM_Bilateral_Asymmetry          -0.18        -0.03               0.48                     1.00              0.07                -0.02
+semisp_C4_LongAP                  0.20        -0.04               0.08                     0.07              1.00                 0.50
+semisp_POP_LongAP_R               0.23        -0.02               0.09                    -0.02              0.50                 1.00
+    k=2: silhouette=0.300 sizes=[39, 12]
+    k=3: silhouette=0.255 sizes=[9, 30, 12]
+    k=4: silhouette=0.234 sizes=[8, 26, 9, 8]
+[A] k=2 chosen. K-means vs Ward ARI=1.000 (Ward sizes [12, 39])
+[A] bootstrap stability: mean ARI(orig, bootstrap-assigned) = 0.527 ± 0.411 (500 reps)
+[A] cluster means on the 6 features + eta2/p:
+    horiz_mean_ST              c0=    8.61  c1=   -3.72  eta2=0.12 p=0.0147
+    sag_peak_WU                c0=   15.74  c1=   12.80  eta2=0.01 p=0.4932
+    SCM_Peak_MVC_WanT          c0=   70.37  c1=  243.15  eta2=0.59 p=0.0000
+    SCM_Bilateral_Asymmetry    c0=   29.38  c1=  171.13  eta2=0.55 p=0.0000
+    semisp_C4_LongAP           c0=    0.86  c1=    0.92  eta2=0.02 p=0.3421
+    semisp_POP_LongAP_R        c0=    0.75  c1=    0.78  eta2=0.01 p=0.5535
+[A] integrated vs Ch1 kinematic: ARI=0.043 (n=51)  crosstab [[25, 14], [5, 7]]
+[A] integrated vs Ch2 SCM: ARI=0.760 (n=51)  crosstab [[37, 2], [1, 11]]
+[A] neck-loading PC1 variance explained = 27.6% (PC2 26.6%)
+
+[B] VAS ~ kinematics only (Ch1 baseline): N=51 R2=0.297 adjR2=0.267 F=10.12 p=0.0002
+      const                      beta=+2.922 p=0.000
+      horiz_mean_ST              beta=+0.990 p=0.002
+      sag_peak_WU                beta=+0.790 p=0.011
+
+[B] VAS ~ 6 integrated features: N=51 R2=0.339 adjR2=0.249 F=3.76 p=0.0042
+      const                      beta=+2.922 p=0.000
+      horiz_mean_ST              beta=+1.033 p=0.003
+      sag_peak_WU                beta=+0.798 p=0.012
+      SCM_Peak_MVC_WanT          beta=+0.076 p=0.830
+      SCM_Bilateral_Asymmetry    beta=+0.388 p=0.270
+      semisp_C4_LongAP           beta=-0.162 p=0.648
+      semisp_POP_LongAP_R        beta=+0.332 p=0.354
+
+[B] FLIP: neck-loading PC1 ~ subject-level variables: N=50 R2=0.128 adjR2=0.006 F=1.05 p=0.4081
+      const                      beta=+0.035 p=0.849
+      age                        beta=+0.232 p=0.251
+      BMI                        beta=-0.230 p=0.434
+      head_circ                  beta=+0.135 p=0.547
+      neck_circ                  beta=-0.316 p=0.309
+      VO2max                     beta=-0.222 p=0.368
+      Wingate                    beta=+0.171 p=0.532
+[C] (supplementary, ~11 events/50; underpowered) logistic cluster~subject vars: pseudoR2=0.014 LLR p=0.993
+
+[D] D1 act_asym <-> struct_asym (signed finding): Spearman rho=-0.323 [-0.55,-0.06] p=0.019 n=52
+[D] D2 rotation <-> struct_asym (pinned): Spearman rho=+0.029 [-0.24,+0.29] p=0.836 n=54
+[D] D2 baseline-flexion <-> struct_asym (pinned): Spearman rho=-0.042 [-0.31,+0.23] p=0.760 n=54
+[D2] struct_asym by Ch1 kin cluster (0=flexed-rotated): c0 median +0.095 vs c1 +0.123  MWU p=0.572 (n=50)
+
+[T] TOKEN MANOVA  cluster x ['struct_asym', 'act_asym']  (N=50; act_asym partly non-independent of cluster -> caveat)
+                             Value Num DF Den DF   F Value    Pr > F
+  Wilks' lambda           0.994157      2   47.0  0.138114  0.871351
+  Pillai's trace          0.005843    2.0   47.0  0.138114  0.871351
+  Hotelling-Lawley trace  0.005877      2   47.0  0.138114  0.871351
+  Roy's greatest root     0.005877      2     47  0.138114  0.871351
+  Pillai=0.0058  permutation p=0.8748
+    struct_asym : c0 +0.11 vs c1 +0.09  MWU p=0.658
+    act_asym    : c0 +0.70 vs c1 -10.05  MWU p=0.829

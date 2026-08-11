@@ -1,0 +1,3 @@
+subject,issue,vo2max_start,second_threshold_start,data_time_min,data_time_max
+subject_622,Second_threshold (240-300) not in data range; Vo2max start (540) not in data range,540,240,540.9998,556.9997
+subject_629,Second_threshold (420-480) not in data range; Vo2max start (600) not in data range,600,420,0.9997941,426.9994

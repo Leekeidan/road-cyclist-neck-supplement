@@ -1,0 +1,82 @@
+
+================================================================================
+HYPOTHESIS 2 (RPE-BASED): FATIGUE PATTERNS (%MVC) BY ΔRPE GROUPS
+================================================================================
+
+GROUPING METHOD:
+ΔRPE = RPE_WanT − RPE_Warmup
+Median split at ΔRPE = 6.00
+- Easy-Warmup group (≥ 6.00): n = 42
+- Hard-Warmup group (< 6.00): n = 18
+
+ΔRPE STATISTICS:
+Mean = 6.25, SD = 1.82, Range = [2, 10]
+
+--------------------------------------------------------------------------------
+METHODS
+--------------------------------------------------------------------------------
+
+A two-way mixed ANOVA was conducted for each muscle with:
+- Within-subjects factor: Phase (5 levels: Warmup, Second Threshold, VO₂max, WanT, Cooldown)
+- Between-subjects factor: ΔRPE Group (2 levels: Easy-Warmup, Hard-Warmup)
+- Dependent variable: Mean %MVC
+
+Participants were classified based on their change in perceived exertion from 
+Warmup to WanT (ΔRPE). A median split was used to create Easy-Warmup (n = 42) 
+and Hard-Warmup (n = 18) groups.
+
+Post-hoc comparisons used Bonferroni correction.
+Effect size for phase effect: Kendall's W (from Friedman test)
+Effect size for ANOVA: Partial eta-squared (η²p)
+
+--------------------------------------------------------------------------------
+RESULTS
+--------------------------------------------------------------------------------
+
+PHASE EFFECT:
+Significant main effects of phase on %MVC were found for 7/8 muscles.
+The average effect size (Kendall's W) was 0.384, indicating a 
+medium effect.
+
+Kendall's W by Muscle:
+  • MTL: χ²(4) = 111.26, p < .001, W = 0.506 (Large)
+  • MTR: χ²(4) = 110.77, p < .001, W = 0.513 (Large)
+  • SCML: χ²(4) = 101.43, p < .001, W = 0.461 (Medium)
+  • SCMR: χ²(4) = 85.11, p < .001, W = 0.394 (Medium)
+  • STL: χ²(4) = 59.23, p < .001, W = 0.269 (Small)
+  • STR: χ²(4) = 26.77, p < .001, W = 0.124 (Small)
+  • UTL: χ²(4) = 102.92, p < .001, W = 0.468 (Medium)
+  • UTR: χ²(4) = 75.06, p < .001, W = 0.341 (Medium)
+
+
+ΔRPE GROUP EFFECT:
+Significant main effects of ΔRPE group were found for 0/8 muscles.
+
+
+
+PHASE × ΔRPE GROUP INTERACTION:
+Significant interaction effects were found for 0/8 muscles.
+
+
+--------------------------------------------------------------------------------
+CONCLUSION
+--------------------------------------------------------------------------------
+
+While significant phase effects were observed, the interaction between phase and ΔRPE group was not significant for most muscles, suggesting that subjective fatigue perception may not strongly differentiate neuromuscular activation patterns.
+
+This RPE-based grouping provides a subjective complement to the EMG-based 
+(objective) clustering approach used in the primary analysis.
+
+--------------------------------------------------------------------------------
+STATISTICAL DETAILS
+--------------------------------------------------------------------------------
+
+Grouping: Median split on ΔRPE (RPE_WanT - RPE_Warmup)
+Test: Two-way Mixed ANOVA (Phase × ΔRPE Group)
+Post-hoc: Bonferroni correction
+Effect sizes: Kendall's W (phase), Partial η² (ANOVA)
+Alpha level: 0.05
+Software: R (afex, rstatix, emmeans)
+
+================================================================================
+

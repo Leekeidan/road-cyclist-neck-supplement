@@ -1,0 +1,15 @@
+======================================================================
+SPEARMAN CORRELATION: VAS vs ROM
+======================================================================
+
+             Variable     rho  p_value Significant Bonferroni_Sig
+    ROM_sagittal_WanT  0.0101   0.9401          No             No
+     ROM_frontal_WanT  0.1626   0.2225          No             No
+  ROM_horizontal_WanT  0.1559   0.2384          No             No
+  ROM_sagittal_Vo2max -0.1317   0.3287          No             No
+   ROM_frontal_Vo2max  0.0517   0.7024          No             No
+ROM_horizontal_Vo2max -0.0463   0.7325          No             No
+
+======================================================================
+Bonferroni corrected threshold: p < 0.0083
+======================================================================

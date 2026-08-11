@@ -1,0 +1,60 @@
+
+================================================================================
+K-MEANS CLUSTER ANALYSIS - SCM-FOCUSED (5 SIGNIFICANT VARIABLES ONLY)
+================================================================================
+
+Analysis Date: 2025-12-31 13:02:41.099214
+
+DATASET:
+  Total subjects collected: 60
+  Final sample size: 60
+  Complete cases: 59
+  Variables: 5 (only statistically significant variables, p < 0.05)
+
+VARIABLE SELECTION:
+    - SCML_IMF_Slope_WanT (p = 0.871, ns)
+    - SCML_Slope_R_squared (p = 0.076, ns)
+  ✅ RETAINED only significant variables (all p < 0.001)
+  
+SPECIFICATIONS:
+  Focus: SCM muscles (SCML, SCMR) - strongest fatigue signal
+  Baseline phase: Warmup
+  Fatigue phase: WanT
+  CCI pair: SCML_MTL (ipsilateral flexor-extensor)
+  Standardization: Z-score
+  Distance metric: Euclidean
+  Algorithm: K-means (Hartigan-Wong)
+  Random seed: 42
+
+RESULTS:
+  K=2: Silhouette = 0.443
+  K=3: Silhouette = 0.426
+  Recommended: k = 2
+
+OUTPUT FILES: Clustering_Analysis_SCM_5_Vars_Artifact_Cleaned
+  - clustering_variables_all_subjects.csv 
+  - clustering_variables_complete_cases.csv
+  - descriptive_statistics.csv
+  - correlation_matrix.csv
+  - clustering_results_k2.csv / k3.csv
+  - cluster_comparison_k2.csv / k3.csv
+  - cluster_quality_metrics.csv
+  - k2_detailed_comparison.csv (detailed K=2 statistics)
+  
+  VISUALIZATIONS:
+  - variable_distributions.png
+  - correlation_matrix.png
+  - optimal_k_analysis.png
+  - pca_visualization.png (K=2 and K=3 side-by-side)
+  
+  K=2 FOCUSED VISUALIZATIONS (RECOMMENDED):
+  - cluster_profiles_radar_k2.png (phenotype radar chart)
+  - cluster_boxplots_k2.png (variable distributions by cluster)
+  - pca_visualization_k2_detailed.png (detailed PCA with centers)
+  
+  K=3 REFERENCE (includes singleton outlier):
+  - cluster_profiles_radar_k3.png
+  - cluster_boxplots_k3.png
+
+================================================================================
+

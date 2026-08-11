@@ -1,0 +1,13 @@
+Variable,Spearman_rho,p_value,n,Significant
+age,-0.272,0.0354,60,True
+Height_cm,-0.143,0.277,60,False
+Weight_kg,0.011,0.9317,60,False
+BMI,0.075,0.5674,60,False
+Head_Circumference_cm,-0.107,0.4179,59,False
+Neck_Circumference_cm,-0.018,0.894,59,False
+Fat_Percent,0.008,0.9489,60,False
+Years_Cycling,-0.244,0.0607,60,False
+Vo2max,0.003,0.979,60,False
+WanT,0.095,0.4722,60,False
+vas,0.094,0.4744,60,False
+pain_bulian,0.086,0.5148,60,False
