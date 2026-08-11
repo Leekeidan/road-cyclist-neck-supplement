@@ -56,8 +56,13 @@ Edge cases, exactly as implemented:
 one-second bins, with `NaN` in unpopulated bins. Populated bins per phase:
 Warmup, Second Threshold, VO₂max and Cooldown are fully populated at 60;
 **WanT carries a median of 47 populated bins (range 35–47)**, a window that
-brackets the 30-second effort rather than matching it. One participant has no
-WanT data, so the effective *n* at WanT is **59**.
+brackets the 30-second effort rather than matching it. The effective *n* at
+WanT is **59**: one participant (597) is absent, not because the recording is
+missing but because it is mislabelled. Their Wingate sheet and co-contraction
+file carry another participant's identifier, so the scripts — which match on
+the exact name `WanT` — never found them, and that participant fell out of
+every Wingate analysis without raising an error. The recording exists and is
+intact; it is excluded here, and the analyses were not re-run.
 
 > The Chapter 1 master tables define `WanT` differently — exactly 31 bins
 > spanning 1.0–31.0 s. Analyses that place WanT co-contraction alongside WanT

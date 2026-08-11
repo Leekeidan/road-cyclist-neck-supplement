@@ -145,6 +145,14 @@ of 47 populated bins (range 35–47), a window that brackets the effort with
 lead-in and lead-out. Comparing Wingate co-contraction against Wingate
 kinematics compares two different windows.
 
+**One participant is absent from the Wingate analyses.** Participant 597's
+Wingate recording is mislabelled — the sheet and file carry another
+participant's identifier — so the analysis scripts, which match on the exact
+name `WanT`, never found it. That participant therefore falls out of every
+Wingate co-contraction result (*n* = 59 rather than 60) and out of the
+Chapter 2 activation clustering, which reports 59 complete cases. The data
+itself is intact; the analyses were not re-run to include it.
+
 **Bilateral asymmetry is signed differently in Chapter 3.** Activation
 asymmetry in Chapters 1 and 4 is left-minus-right, so positive means left
 dominant. The Chapter 3 morphology table is right-minus-left and labels its
@@ -311,10 +319,3 @@ subject to approval by the Ethics Committee of Tel Aviv University.
 }
 ```
 
----
-
-## Licence
-
-<!-- TODO: not yet chosen. Recommended pairing is MIT for the code and
-     CC BY 4.0 for the derived data tables in data/, unless institutional
-     policy requires otherwise. -->
