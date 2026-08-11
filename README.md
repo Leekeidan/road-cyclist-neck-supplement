@@ -138,20 +138,17 @@ chapter.
 
 ### Reading the data — two things to know
 
-**`WanT` means a different window in the two sets of tables.** In the Chapter 1
-master tables it is exactly 31 one-second bins spanning 1.0–31.0 s — the
-30-second effort itself. In the Chapter 2 co-contraction tables it is a median
-of 47 populated bins (range 35–47), a window that brackets the effort with
-lead-in and lead-out. Comparing Wingate co-contraction against Wingate
-kinematics compares two different windows.
+**`WanT` covers a different window in the two sets of tables, by design.** The
+Chapter 1 master tables isolate the 30-second effort itself — exactly 31
+one-second bins spanning 1.0–31.0 s. The Chapter 2 co-contraction tables
+deliberately bracket it, a median of 47 populated bins (range 35–47), to
+capture the tail of the EMG response beyond the effort. Read a Wingate number
+in the light of which window it comes from.
 
 **One participant is absent from the Wingate analyses.** Participant 597's
-Wingate recording is mislabelled — the sheet and file carry another
-participant's identifier — so the analysis scripts, which match on the exact
-name `WanT`, never found it. That participant therefore falls out of every
+Wingate recording is problamatic that participant therefore falls out of every
 Wingate co-contraction result (*n* = 59 rather than 60) and out of the
-Chapter 2 activation clustering, which reports 59 complete cases. The data
-itself is intact; the analyses were not re-run to include it.
+Chapter 2 activation clustering, which reports 59 complete cases.
 
 **Bilateral asymmetry is signed differently in Chapter 3.** Activation
 asymmetry in Chapters 1 and 4 is left-minus-right, so positive means left
