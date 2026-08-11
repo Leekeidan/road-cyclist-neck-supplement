@@ -4,7 +4,7 @@
 
 A measure of how evenly two muscles are active at the same instant, computed
 for twelve muscle pairs across the cervical region. It answers "are these two
-muscles sharing the load, or is one dominating?" — independently of how hard
+muscles sharing the load, or is one dominating?"  independently of how hard
 either is working in absolute terms.
 
 ## 2. Formula
@@ -34,18 +34,18 @@ Edge cases, exactly as implemented:
 
 ## 4. Pipeline from raw file to value
 
-1. **Input** — the 1-second %MVC bins from
+1. **Input** : the 1-second %MVC bins from
    `subject_XXX_EMG_1sec_results.xlsx` (see `METHOD_MVC.md` for filter settings
    and binning).
-2. **Phase windowing** —
+2. **Phase windowing** :
    - `Warmup`, `CoolDown`, `WanT`: taken from their own recordings.
    - `Second_Threshold` and `VO2max`: extracted from the continuous ramp as
      **60-second** windows beginning at the per-participant onset times in
      `data/files_help/start_Times_Vo2max.csv`. A window is accepted if at least
      **40 seconds** of valid data are present (`MIN_ACCEPTABLE_DURATION = 40`).
-3. **Pairwise computation** — the formula above, applied bin by bin to all
+3. **Pairwise computation**: the formula above, applied bin by bin to all
    twelve pairs.
-4. **Merge** — per-participant results are stacked into the twelve long-format
+4. **Merge**: per-participant results are stacked into the twelve long-format
    tables in `data/chapter2_emg/CCI/`, columns `subject, muscle_pair, phase, sec, value`.
 
 **Muscle pairs (12).** Bilateral: `MTL–MTR`, `SCML–SCMR`, `STL–STR`,
