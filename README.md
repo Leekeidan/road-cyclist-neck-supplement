@@ -1,7 +1,7 @@
-# Understanding the Road Cyclist's Neck — Data and Methods Supplement
+# Understanding the Road Cyclist's Neck: Data and Methods Supplement
 
-This repository is the data-and-methods supplement to the doctoral dissertation
-*Understanding the Road Cyclist's Neck* (Lee Keidan). It contains the data
+This repository is the data and methods supplement to the doctoral dissertation
+called *Understanding the Road Cyclist's Neck* (Lee Keidan). It contains the data
 behind the reported results, at every stage from per-participant output to the
 group tables, together with documentation of how each measure was computed — so
 that a reader can follow how a raw signal became a reported number. Sixty trained male
@@ -21,7 +21,6 @@ the integration of the three (Chapter 4).
 
 ---
 
-## Start here
 **If you want the definition of a particular form of measurement**, read the relevant
 `docs/METHOD_*.md`. Each gives the formula with every term defined, the sign
 convention and units, the processing chain, the exclusions actually applied, and
@@ -33,8 +32,10 @@ measure, one moment in time through all nine stages of the analysis — naming t
 file and showing the actual value at each step, and working the arithmetic by
 hand at the point where the measure is computed. It requires no programming.
 
-**If you want the analysis code**, it is not deposited here — see
+**If you want the analysis code**, it is not here — see
 [Code availability](#code-availability).
+
+****If you want the subject raw data, it is also not here**
 
 ## Repository map
 
@@ -72,20 +73,20 @@ supplement.
 
 ## Order of analysis
 
-The chain runs in one direction: signal extraction produces a per-participant
+The chain runs signal extraction, which produces a per-participant
 results tree, and every chapter analysis consumes it. The steps below name what
 each stage produces, so that any table in `data/` can be located in the chain.
 Script names are given to identify each step unambiguously; the scripts
 themselves are not deposited here (see [Code availability](#code-availability)).
 
-### 0. Extraction (MATLAB) — produces the per-participant results tree
+### 0. Extraction (MATLAB): produces the per-participant results tree
 
 Writes, per participant, a `subject_XXX_EMG_1sec_results.xlsx` (one sheet per
 phase, plus an `MVC` sheet), a `subject_XXX_binogram_1sec_results.xlsx`
 (cervical angles), an `IMF.xlsx`, and a `CoContraction_Results/` folder — all
 of which are in `data/per_subject/`. Every later stage reads from this tree.
 
-### 1. Chapter 1 — pain, kinematics and activation
+### 1. Chapter 1: pain, kinematics and activation
 
 | Order | Script | Produces |
 |---|---|---|
@@ -96,7 +97,7 @@ of which are in `data/per_subject/`. Every later stage reads from this tree.
 | 5 | `H1-angles/`, `H2-MVC/`, `H3-CCI/`, `H4-Asymmetry/`, `Ordinal_pain_Analysis_*.py`, `Acute_VAS_vs_*.py` | Per-hypothesis correlation and group-comparison tables |
 | 6 | `kinematic_4var_staticref_clustering.py`, then `kinematic_pain_regression.py` | Two-phenotype k-means solution and the confirmatory permutation regression |
 
-### 2. Chapter 2 — activation, fatigue and co-contraction
+### 2. Chapter 2: activation, fatigue and co-contraction
 
 Each measure is a numbered pipeline; run in order within each folder.
 
@@ -105,7 +106,7 @@ Each measure is a numbered pipeline; run in order within each folder.
 - **CCI** — `CCI_Step1_Merge.py` → `CCI_Step2_Format.py` → `CCI_Step3_Normality_Testing.py` → then either `CCI_Step4_Analysis_Friedman_and_lmer.R` (original analysis) or `CCI_LMM_Analysis.py` (the repeated-measures ANOVA rerun that is reported)
 - **Cluster** — `cluster_analysis_5_SCM_VARS_PYTHON.py` for the SCM activation phenotypes
 
-### 3. Chapter 3 — ultrasound morphology
+### 3. Chapter 3: ultrasound morphology
 
 `build_merged_files.py` **must run first** — it reads the raw measurement
 workbook and writes `us_measurments.xlsx`, `us_merged.xlsx`,
@@ -124,7 +125,7 @@ the correlation scripts (`angle_comparison.py`, `EMG_MVC_comparison.py`,
 
 ## Data
 
-Two shared inputs sit at the root of `data/`; everything else is organised by
+Two shared inputs sit at the root of `data/`; everything else is organized by
 chapter.
 
 | Folder | Contents |
@@ -136,17 +137,17 @@ chapter.
 | `data/chapter3_morphology/` | Ultrasound morphology |
 | `data/chapter4_integration/` | Integration of the three |
 
-### Reading the data — two things to know
+### Reading the data:
 
 **`WanT` covers a different window in the two sets of tables, by design.** The
 Chapter 1 master tables isolate the 30-second effort itself — exactly 31
 one-second bins spanning 1.0–31.0 s. The Chapter 2 co-contraction tables
 deliberately bracket it, a median of 47 populated bins (range 35–47), to
-capture the tail of the EMG response beyond the effort. Read a Wingate number
+capture the tail of the EMG response beyond the effort. Read a Wingate number should then be
 in the light of which window it comes from.
 
 **One participant is absent from the Wingate analyses.** Participant 597's
-Wingate recording is problamatic that participant therefore falls out of every
+Wingate recording is problematic; that participant therefore falls out of every
 Wingate co-contraction result (*n* = 59 rather than 60) and out of the
 Chapter 2 activation clustering, which reports 59 complete cases.
 
@@ -158,7 +159,7 @@ left-minus-right. Check the column header or axis label before interpreting a
 sign. See [`docs/METHOD_asymmetry.md`](docs/METHOD_asymmetry.md).
 
 
-### `data/per_subject/` — participant-level output, all 60 participants
+### `data/per_subject/`: participant-level output, all 60 participants
 
 One folder per participant (`subject_541` … `subject_632`), 91 MB across 1,398
 files. This is the layer between the raw recordings and the group tables: any
@@ -183,9 +184,9 @@ MATLAB and the extraction layer to be interpretable, and are available from the
 author on request.
 
 
-### `data/files_help/` — master analysis tables and lookups
+### `data/files_help/`: master analysis tables and lookups
 
-The Chapter 1 analyses all read from one of two master tables.
+The Chapter 1 analyses are all read from one of two master tables.
 
 | File | Rows | Cols | Contents |
 |---|---|---|---|
@@ -197,7 +198,7 @@ WanT 1,829 · Cooldown 3,658.
 
 Supporting lookups: `Anthropometric_data.xlsx` (64 rows × 15), `pain.xlsx`,
 `VAS_phases.csv` (VAS at six timepoints), `RPE.csv`,
-`Vo2max_results.xlsx`, `combined_data_boolian_vas.xlsx` (pain grouping
+`Vo2max_results.xlsx`, `combined_data_boolean_vas.xlsx` (pain grouping
 and PC1 score), `start_Times_Vo2max.csv` (per-participant onset of the VO₂max
 and second-threshold windows), `segment.xlsx` (per-participant Euler segment
 choice per plane), `extraction_all_phases_summary*.csv`,
@@ -211,7 +212,7 @@ Its file paths refer to a retired machine.
 > including `angle horzintal` and `Sagital`.
 
 
-### `data/chapter1_pain/` — kinematics, pain and phenotypes
+### `data/chapter1_pain/`: kinematics, pain and phenotypes
 
 | Subfolder | Contents |
 |---|---|
@@ -225,7 +226,7 @@ Superseded clustering variants (the non-static-referenced four-variable and the
 five-variable solutions) are not included; the reported analysis is the
 static-referenced one.
 
-### `data/chapter2_emg/` — activation, fatigue and co-contraction
+### `data/chapter2_emg/`: activation, fatigue and co-contraction
 
 | Subfolder | Contents |
 |---|---|
@@ -256,11 +257,11 @@ including the D1 SCM structure-by-activation asymmetry result.
 
 ## Code availability
 
-The analyses were implemented in Python, R and MATLAB. The code is not
+The analyses were implemented in Python, R, and MATLAB. The code is not
 deposited in this repository. Every derived measure is instead documented in
 `docs/`, which gives for each one the formula with all terms defined, the sign
 convention and units, the full processing chain including filter settings,
-window lengths and normalisation reference, the exclusions actually applied,
+window lengths and normalization reference, the exclusions actually applied,
 and the known limitations. `docs/PIPELINE.md` follows a single participant
 through the entire chain, showing the value held in each file at each stage and
 working the arithmetic by hand where the measure is computed.
@@ -272,8 +273,8 @@ The analysis code is available from the author on reasonable request.
 ## Data availability
 
 The study was approved by the Ethics Committee of Tel Aviv University
-(approval no. 0004184-3), under the protocol *Cervical neck strain and
-injuries in cyclists — risk factors and prevention*.
+(approval no. 0004184-3), under the protocol **Cervical neck strain and
+injuries in cyclists - risk factors and prevention**.
 
 The participant-level derived data supporting this
 dissertation are openly available in this repository, comprising per-phase
@@ -283,36 +284,12 @@ participants, together with the group-level tables from which the reported
 statistics were computed. Participants are identified by three-digit code only.
 
 The underlying raw electromyographic and inertial recordings (approximately
-1.5 GB) are not deposited publicly. They are unprocessed signal requiring the
+1.5 GB) are not deposited publicly. They are unprocessed signals requiring the
 MATLAB extraction layer to be interpretable, and they fall outside the scope of
-open deposit under the consent obtained. De-identified raw recordings may be
-made available to qualified researchers on reasonable request to the author,
+open deposit. Raw recordings may be
+made available to qualified researchers on reasonable request,
 subject to approval by the Ethics Committee of Tel Aviv University.
 
 ---
 
-## Citation
-
-<!-- TODO — supply before minting the DOI:
-     institution and degree title, submission year, ORCID,
-     supervisor listing, and the Zenodo DOI once reserved. -->
-
-```bibtex
-@phdthesis{keidan_cyclist_neck,
-  author  = {Keidan, Lee},
-  title   = {Understanding the Road Cyclist's Neck},
-  school  = {Tel Aviv University},
-  year    = {TODO — submission year},
-  type    = {TODO — degree title}
-}
-
-@software{keidan_cyclist_neck_supplement,
-  author  = {Keidan, Lee},
-  title   = {Understanding the Road Cyclist's Neck:
-             Data and Methods Supplement},
-  year    = {TODO},
-  doi     = {TODO — Zenodo DOI},
-  url     = {TODO — repository URL}
-}
-```
 
