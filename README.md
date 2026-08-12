@@ -101,12 +101,12 @@ of which are in `data/per_subject/`. Every later stage reads from this tree.
 
 Each measure is a numbered pipeline; run in order within each folder.
 
-- **MVC** — `MVC_Step1_Merge_files.py` → `MVC_Step2_create_wide_and_long.py` → `MVC_Step3_Normality_Testing_ShapiroWilk.py` → `MVC_Analysis.py`
-- **IMF** — `IMF_Step1_Extract_VO2max_SecondThreshold_Raw.py` → `IMF_Step2_IMF_calculation.py` → `IMF_Step3_Format_Converter.py` → `IMF_Step4_Slope_Analysis.py` → `IMF_Step5_Fatigue_Duration_MultiThreshold.py`
-- **CCI** — `CCI_Step1_Merge.py` → `CCI_Step2_Format.py` → `CCI_Step3_Normality_Testing.py` → then either `CCI_Step4_Analysis_Friedman_and_lmer.R` (original analysis) or `CCI_LMM_Analysis.py` (the repeated-measures ANOVA rerun that is reported)
-- **Cluster** — `cluster_analysis_5_SCM_VARS_PYTHON.py` for the SCM activation phenotypes
+- **MVC**: `MVC_Step1_Merge_files.py` → `MVC_Step2_create_wide_and_long.py` → `MVC_Step3_Normality_Testing_ShapiroWilk.py` → `MVC_Analysis.py`
+- **IMF**: `IMF_Step1_Extract_VO2max_SecondThreshold_Raw.py` → `IMF_Step2_IMF_calculation.py` → `IMF_Step3_Format_Converter.py` → `IMF_Step4_Slope_Analysis.py` → `IMF_Step5_Fatigue_Duration_MultiThreshold.py`
+- **CCI**: `CCI_Step1_Merge.py` → `CCI_Step2_Format.py` → `CCI_Step3_Normality_Testing.py` → then either `CCI_Step4_Analysis_Friedman_and_lmer.R` (original analysis) or `CCI_LMM_Analysis.py` (the repeated-measures ANOVA rerun that is reported)
+- **Cluster**: `cluster_analysis_5_SCM_VARS_PYTHON.py` for the SCM activation phenotypes
 
-### 3. Chapter 3: ultrasound morphology
+### 3. Chapter 3: Ultrasound morphology
 
 `build_merged_files.py` **must run first** — it reads the raw measurement
 workbook and writes `us_measurments.xlsx`, `us_merged.xlsx`,
@@ -116,7 +116,7 @@ the correlation scripts (`angle_comparison.py`, `EMG_MVC_comparison.py`,
 `IMF_comparison.py`, `anthropometric_vs_size_correlations.py`) →
 `fitness_cluster_US.py`, `results_figures.py`, `scm_cluster_comparison.py`.
 
-### 4. Chapter 4 — integration
+### 4. Chapter 4: integration
 
 `build_integrated_dataset.py` → `ch4_integrated_analysis.py` →
 `ch4_pca_and_flip.py` → `ch4_make_figures.py` → `fig9_D1_scm_asymmetry.py`
