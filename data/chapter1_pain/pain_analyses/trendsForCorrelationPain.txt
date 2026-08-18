@@ -1,6 +1,0 @@
-Mean_horizontal_Cooldown 0.006
-Mean_horizontal_Vo2max 0.01
-Asym_SCM_Warmup 0.05
-Mean_sagittal_Warmup 0.06
-Asym_MT_Vo2max 0.09
-Asym_UT_Vo2max 0.1
