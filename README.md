@@ -1,30 +1,31 @@
 # Understanding the Road Cyclist's Neck: Data and Methods Supplement
 
 This repository is the data and methods supplement to the doctoral dissertation
-called *Understanding the Road Cyclist's Neck* (Lee Keidan). It contains the data
-behind the reported results, at every stage from per-participant output to the
-group tables, together with documentation of how each measure was computed — so
-that a reader can follow how a raw signal became a reported number. Sixty trained male
-cyclists completed an instrumented laboratory protocol (warm-up, second
-ventilatory threshold, VO₂max ramp, 30-second Wingate, cool-down) with
+called *Understanding the Road Cyclist's Neck* (by ph. candidate Lee Keidan). It contains the data
+behind the reported results, at every stage from individual participant output per phase to the
+group tables, together with documentation of how each measure was computed. This enables
+the reader to follow the entire pipeline from raw signal to a reported number. 
+
+Sixty trained male cyclists completed a cycling laboratory protocol including warm-up, second
+ventilatory threshold, VO₂max ramp, 30-second Wingate, cooldown. Cyclists were connected to an
 eight-channel surface EMG of the cervical musculature, inertial measurement of
 cervical kinematics in three planes, and B-mode ultrasound of cervical muscle
-morphology. The dissertation examines neck pain (Chapter 1), neuromuscular
+morphology was performed prior to cycling. The dissertation examines neck pain (Chapter 1), neuromuscular
 activation and co-contraction (Chapter 2), muscle morphology (Chapter 3), and
 the integration of the three (Chapter 4).
 
 > **Scope.** This repository holds the participant-level derived data for
-> **all 60 participants** — every reported number can be traced
+> **all 60 participants**; every reported number can be traced
 > back to the per-participant values it was computed from. The underlying raw
 > recordings (approximately 1.5 GB of unprocessed EMG and inertial signal) are
 > not deposited here; see [Data availability](#data-availability).
 
 ---
+#**were to find**
 
-**If you want the definition of a particular form of measurement**, read the relevant
+**If you want the definition of a particular form of measurement**, read
 `docs/METHOD_*.md`. Each gives the formula with every term defined, the sign
-convention and units, the processing chain, the exclusions actually applied, and
-the known limitations.
+convention and units, the processing chain, the exclusions actually applied.
 
 **If you want to see how a reported number was produced**, read
 **[`docs/PIPELINE.md`](docs/PIPELINE.md)**. It follows one participant, one
@@ -35,18 +36,20 @@ hand at the point where the measure is computed. It requires no programming.
 **If you want the analysis code**, it is not here — see
 [Code availability](#code-availability).
 
-****If you want the subject raw data, it is also not here**
+****If you want the subject raw data, it is also not here see
+[Code availability](#code-availability)**
+
+---
 
 ## Repository map
 
 | Path | Contents |
 |------|----------|
-| `docs/PIPELINE.md` | Raw signal to reported number, followed end to end for one participant. **The best place to start.** |
+| `docs/PIPELINE.md` | Raw signal to reported number, followed end-to-end for one participant. **This is the best place to start.** |
 | `docs/METHOD_*.md` | One document per derived measure: %MVC, IMF, CCI, bilateral asymmetry, cluster assignment. |
-| `data/per_subject/` | Participant-level output for all 60 participants — activation, angles, median frequency, co-contraction, merged tables. |
+| `data/per_subject/` | Per-participant-level output for all 60 participants including activation, angles, median frequency, co-contraction, merged tables. |
 | `data/files_help/` | The master analysis tables and the lookups that feed them. |
 | `data/chapter1_pain/` … `data/chapter4_integration/` | Results, one folder per chapter. |
-| `requirements.txt` | The Python environment the analyses were run in, pinned. |
 
 ---
 
