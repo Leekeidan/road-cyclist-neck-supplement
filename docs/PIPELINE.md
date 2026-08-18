@@ -19,7 +19,7 @@ middle trapezius (SCML–MTL) for participant 573, during the Wingate test.**
 | 3 | Filtered, normalised, binned | same file, sheet `WanT` | SCML **7.081318 %MVC** · MTL **5.233028 %MVC** |
 | 4 | Co-contraction | `CoContraction_Results/WanT_co_contraction.xlsx` | **0.849908** |
 | 5 | All measures merged | `subject_573_CCI_IMF_EMG_Angles_merged.xlsx` | 0.849908, alongside angles and IMF |
-| 6 | Stacked across participants | `data/chapter2_emg/CCI/CCI_SCML_MTL_all_CCI_for_R.csv` | 0.849908, row `subject_573 / WanT / 0.999794` |
+| 6 | Stacked across participants | `data/chapter2_emg/H3_cocontraction/cci_by_phase/CCI_SCML_MTL_all_CCI_for_R.csv` | 0.849908, row `subject_573 / WanT / 0.999794` |
 | 7 | Participant summary | same file, averaged | mean **0.3962** over 47 populated bins |
 | 8 | Cohort summary | same file, all participants | mean **0.5586**, SD 0.1931, *n* = 59 |
 | 9 | Reported statistic | the Chapter 2 co-contraction analysis | repeated-measures ANOVA across the five phases |
@@ -109,7 +109,7 @@ one-second grid, so that a given second can be read across all measures at once.
 
 ### 6. Stacking across participants
 
-`data/chapter2_emg/CCI/CCI_SCML_MTL_all_CCI_for_R.csv` is the same value in a long table
+`data/chapter2_emg/H3_cocontraction/cci_by_phase/CCI_SCML_MTL_all_CCI_for_R.csv` is the same value in a long table
 covering everyone — 18,000 rows of `subject, muscle_pair, phase, sec, value`:
 
 ```
@@ -150,8 +150,8 @@ document giving its formula, units, sign convention and exclusions:
 | Measure | Per-participant file | Group file | Method |
 |---|---|---|---|
 | Muscle activation | `subject_XXX_EMG_1sec_results.xlsx` | `data/files_help/master_all_subjects_all_phases_with_CCI.csv` | [`METHOD_MVC.md`](METHOD_MVC.md) |
-| Median frequency / fatigue | `IMF.xlsx`, `subject_XXX_IMF_detailed.xlsx` | `data/chapter2_emg/IMF/IMF_LongFormat_*.csv` | [`METHOD_IMF.md`](METHOD_IMF.md) |
-| Co-contraction | `CoContraction_Results/` | `data/chapter2_emg/CCI/` | [`METHOD_CCI.md`](METHOD_CCI.md) |
+| Median frequency / fatigue | `IMF.xlsx`, `subject_XXX_IMF_detailed.xlsx` | `data/chapter2_emg/H1_median_frequency/imf_series_and_slopes/IMF_LongFormat_*.csv` | [`METHOD_IMF.md`](METHOD_IMF.md) |
+| Co-contraction | `CoContraction_Results/` | `data/chapter2_emg/H3_cocontraction/cci_by_phase/` | [`METHOD_CCI.md`](METHOD_CCI.md) |
 | Cervical angles | `subject_XXX_binogram_1sec_results.xlsx` | `data/files_help/master_all_subjects_all_phases_with_CCI.csv` | — |
 | Bilateral asymmetry | derived from the master table | — | [`METHOD_asymmetry.md`](METHOD_asymmetry.md) |
 | Activation phenotypes | — | `data/chapter2_emg/clustering_scm/` | [`METHOD_clustering.md`](METHOD_clustering.md) |

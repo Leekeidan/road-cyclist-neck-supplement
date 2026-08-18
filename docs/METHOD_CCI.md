@@ -46,7 +46,7 @@ Edge cases, exactly as implemented:
 3. **Pairwise computation**: the formula above, applied bin by bin to all
    twelve pairs.
 4. **Merge**: per-participant results are stacked into the twelve long-format
-   tables in `data/chapter2_emg/CCI/`, columns `subject, muscle_pair, phase, sec, value`.
+   tables in `data/chapter2_emg/H3_cocontraction/cci_by_phase/`, columns `subject, muscle_pair, phase, sec, value`.
 
 **Muscle pairs (12).** Bilateral: `MTL–MTR`, `SCML–SCMR`, `STL–STR`,
 `UTL–UTR`. Ipsilateral: `SCML–UTL`, `SCML–MTL`, `SCML–STL`, `SCMR–UTR`,

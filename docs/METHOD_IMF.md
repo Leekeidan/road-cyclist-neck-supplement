@@ -83,7 +83,7 @@ detection at **20 %, 30 % and 50 %** drops
   ANOVA, in `IMF_Step4_Slope_Analysis.py`. Removed points are logged; a cleaned
   long-format file (`IMF_LongFormat_CLEANED_IQR.csv`) and a flagged file
   (`IMF_LongFormat_with_outlier_flags.csv`) are both retained in
-  `data/chapter2_emg/IMF/`.
+  `data/chapter2_emg/H1_median_frequency/imf_series_and_slopes/`.
 
 ## 6. Where it is computed
 
