@@ -185,27 +185,35 @@ author on request.
 
 ### `data/files_help/` — master analysis tables and lookups
 
-The Chapter 1 analyses all read from one of two master tables.
+**The two master tables.** Every Chapter 1 analysis reads from one of these.
 
 | File | Rows | Cols | Contents |
 |---|---|---|---|
 | `master_all_subjects_all_phases.csv` | 15,435 | 27 | 60 participants × 5 phases, one-second bins. `subject`, `Period`, `Time (s)`, eight EMG channels as %MVC (`MTL MTR SCML SCMR STL STR UTL UTR`), three cervical angles (`angle sagital`, `angle frontal`, `angle horzintal`), pain (`vas`, `pain_bulian`), and anthropometrics/fitness (`Height_cm`, `Weight_kg`, `BMI`, `Head_Circumference_cm`, `Neck_Circumference_cm`, `Fat_Percent`, `Years_Cycling`, `Other_Sport`, `Vo2max`, `WanT`, `missing_data`) |
-| `master_all_subjects_all_phases_with_CCI.csv` | 15,435 | 39 | The same table plus the twelve `CCI_{PAIR}` columns written by `Part_4_compute_CCI.py` |
+| `master_all_subjects_all_phases_with_CCI.csv` | 15,435 | 39 | The same table plus the twelve `CCI_{PAIR}` columns. This is the one the pain analyses actually consume |
 
 Rows per phase: Warmup 3,629 · Second\_threshold 3,429 · VO2max 2,890 ·
 WanT 1,829 · Cooldown 3,658.
 
-Supporting lookups: `Anthropometric_data.xlsx` (64 rows × 15), `pain.xlsx`,
-`VAS_phases.csv` (VAS at six timepoints), `RPE.csv`,
-`Vo2max_results.xlsx`, `combined_data_boolian_vas.xlsx` (pain grouping
-and PC1 score), `start_Times_Vo2max.csv` (per-participant onset of the VO₂max
-and second-threshold windows), `segment.xlsx` (per-participant Euler segment
-choice per plane), `extraction_all_phases_summary*.csv`,
-`vo2max_data_coverage_issues.csv`, and `master_dataset_summary.txt`.
+**The lookups**, each keyed by participant, that the master tables and the
+chapter analyses join against.
 
-`READ_ME.txt` is the author's original raw-data intake protocol (Delsys export
-conventions, participant renaming, column layout, MATLAB and IMF run order).
-Its file paths refer to a retired machine.
+| File | Shape | What it holds, and what uses it |
+|---|---|---|
+| `Anthropometric_data.xlsx` | 64 × 15 | Height, weight, BMI, head and neck circumference, body fat, years cycling, VO₂max, Wingate, VAS. Joined into the master table; also feeds the Chapter 4 integration |
+| `pain.xlsx` | 63 × 6 | Per-participant pain by plane, the binary pain flag and VAS. Joined into the master table; used across the Chapter 1 and Chapter 3 pain comparisons |
+| `VAS_phases.csv` | 66 × 7 | VAS at six timepoints through the protocol — the source of the acute-pain change scores |
+| `combined_data_boolian_vas.xlsx` | 65 × 5 | Pain grouping and PC1 score per participant; used by the Chapter 3 morphology comparisons and the Chapter 4 integrated dataset |
+| `Vo2max_results.xlsx` | 64 × 7 | VO₂max, Wingate peak power and training-volume variables; drives the fitness clustering |
+| `start_Times_Vo2max.csv` | 60 × 3 | Per-participant onset of the VO₂max and second-threshold windows within the continuous ramp. Without it those two phases cannot be extracted at all |
+| `segment.xlsx` | 60 × 9 | The Euler decomposition sequence chosen per participant per plane, plus outlier and coverage flags — the record of which rotation convention each participant's angles were computed with |
+| `RPE.csv` | 61 × 6 | Rating of perceived exertion per phase. Reported in the thesis; no script in the deposited pipeline reads it |
+
+**Documentation, not data.** `master_dataset_summary.txt` describes the master
+table as built — participant count, row count, rows per phase, and the full
+column list. `READ_ME.txt` is the original raw-data intake protocol: Delsys
+export conventions, participant renaming, column layout, and the MATLAB and IMF
+run order. Its file paths refer to a machine no longer in use.
 
 > Column spellings are preserved exactly as the analysis code expects them,
 > including `angle horzintal` and `Sagital`.
