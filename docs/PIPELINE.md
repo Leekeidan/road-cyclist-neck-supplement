@@ -149,10 +149,10 @@ document giving its formula, units, sign convention and exclusions:
 
 | Measure | Per-participant file | Group file | Method |
 |---|---|---|---|
-| Muscle activation | `subject_XXX_EMG_1sec_results.xlsx` | `data/files_help/master_all_subjects_all_phases.csv` | [`METHOD_MVC.md`](METHOD_MVC.md) |
+| Muscle activation | `subject_XXX_EMG_1sec_results.xlsx` | `data/files_help/master_all_subjects_all_phases_with_CCI.csv` | [`METHOD_MVC.md`](METHOD_MVC.md) |
 | Median frequency / fatigue | `IMF.xlsx`, `subject_XXX_IMF_detailed.xlsx` | `data/chapter2_emg/IMF/IMF_LongFormat_*.csv` | [`METHOD_IMF.md`](METHOD_IMF.md) |
 | Co-contraction | `CoContraction_Results/` | `data/chapter2_emg/CCI/` | [`METHOD_CCI.md`](METHOD_CCI.md) |
-| Cervical angles | `subject_XXX_binogram_1sec_results.xlsx` | `data/files_help/master_all_subjects_all_phases.csv` | — |
+| Cervical angles | `subject_XXX_binogram_1sec_results.xlsx` | `data/files_help/master_all_subjects_all_phases_with_CCI.csv` | — |
 | Bilateral asymmetry | derived from the master table | — | [`METHOD_asymmetry.md`](METHOD_asymmetry.md) |
 | Activation phenotypes | — | `data/chapter2_emg/clustering_scm/` | [`METHOD_clustering.md`](METHOD_clustering.md) |
 | Method reliability (ICC) | — | not in this repository — see the method-validation study, Keidan et al. (2025) | — |

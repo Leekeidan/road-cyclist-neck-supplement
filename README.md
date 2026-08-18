@@ -91,8 +91,8 @@ of which are in `data/per_subject/`. Every later stage reads from this tree.
 |---|---|---|
 | 1 | `Part_1_CCI_IMF_EMG_Angles_merged_time.py` | Per subject: CCI + IMF + EMG %MVC merged on 1-second bins |
 | 2 | `Part_2_extract_EMG_Angles_all_phases.py` | `subject_XXX_CCI_IMF_EMG_Angles_merged.xlsx` |
-| 3 | `Part_3_stack_and_merge_master.py` | `master_all_subjects_all_phases.csv` (joins `Anthropometric_data.xlsx` and `pain.xlsx`) |
-| 4 | `Part_4_compute_CCI.py` | `master_all_subjects_all_phases_with_CCI.csv` — the analysis master table |
+| 3 | `Part_3_stack_and_merge_master.py` | Stacks all participants and joins `Anthropometric_data.xlsx` and `pain.xlsx` |
+| 4 | `Part_4_compute_CCI.py` | Adds the twelve co-contraction columns, giving `master_all_subjects_all_phases_with_CCI.csv` — the analysis master table |
 | 5 | `H1-angles/`, `H2-MVC/`, `H3-CCI/`, `H4-Asymmetry/`, `Ordinal_pain_Analysis_*.py`, `Acute_VAS_vs_*.py` | Per-hypothesis correlation and group-comparison tables |
 | 6 | `kinematic_4var_staticref_clustering.py`, then `kinematic_pain_regression.py` | Two-phenotype k-means solution and the confirmatory permutation regression |
 
@@ -183,36 +183,37 @@ MATLAB and the extraction layer to be interpretable, and are available from the
 author on request.
 
 
-### `data/files_help/` — master analysis tables and lookups
+### `data/files_help/` — the master table and its lookups
 
-**The two master tables.** Every Chapter 1 analysis reads from one of these.
+Nine files: one master analysis table, seven per-participant lookups that feed
+it or the chapter analyses, and one provenance document.
 
-| File | Rows | Cols | Contents |
-|---|---|---|---|
-| `master_all_subjects_all_phases.csv` | 15,435 | 27 | 60 participants × 5 phases, one-second bins. `subject`, `Period`, `Time (s)`, eight EMG channels as %MVC (`MTL MTR SCML SCMR STL STR UTL UTR`), three cervical angles (`angle sagital`, `angle frontal`, `angle horzintal`), pain (`vas`, `pain_bulian`), and anthropometrics/fitness (`Height_cm`, `Weight_kg`, `BMI`, `Head_Circumference_cm`, `Neck_Circumference_cm`, `Fat_Percent`, `Years_Cycling`, `Other_Sport`, `Vo2max`, `WanT`, `missing_data`) |
-| `master_all_subjects_all_phases_with_CCI.csv` | 15,435 | 39 | The same table plus the twelve `CCI_{PAIR}` columns. This is the one the pain analyses actually consume |
+**The master table.** Every Chapter 1 analysis reads from this.
+
+| File | Shape | Contents |
+|---|---|---|
+| `master_all_subjects_all_phases_with_CCI.csv` | 15,435 × 39 | 60 participants × 5 phases on one-second bins. `subject`, `Period`, `Time (s)`; eight EMG channels as %MVC (`MTL MTR SCML SCMR STL STR UTL UTR`); three cervical angles (`angle sagital`, `angle frontal`, `angle horzintal`); pain (`vas`, `pain_bulian`); anthropometrics and fitness (`Height_cm`, `Weight_kg`, `BMI`, `Head_Circumference_cm`, `Neck_Circumference_cm`, `Fat_Percent`, `Years_Cycling`, `Other_Sport`, `Vo2max`, `WanT`, `missing_data`); and the twelve `CCI_{PAIR}` co-contraction columns |
 
 Rows per phase: Warmup 3,629 · Second\_threshold 3,429 · VO2max 2,890 ·
 WanT 1,829 · Cooldown 3,658. Coverage is complete: every one of the 60
 participants has an extracted file, pain data and anthropometrics.
 
-**The lookups**, each keyed by participant, that the master tables and the
-chapter analyses join against.
+**The lookups**, each keyed by participant.
 
 | File | Shape | What it holds, and what uses it |
 |---|---|---|
-| `Anthropometric_data.xlsx` | 64 × 15 | Height, weight, BMI, head and neck circumference, body fat, years cycling, VO₂max, Wingate, VAS. Joined into the master table; also feeds the Chapter 4 integration |
-| `pain.xlsx` | 63 × 6 | Per-participant pain by plane, the binary pain flag and VAS. Joined into the master table; used across the Chapter 1 and Chapter 3 pain comparisons |
+| `Anthropometric_data.xlsx` | 64 × 15 | Height, weight, BMI, head and neck circumference, body fat, years cycling, VO₂max, Wingate and VAS. Joined into the master table; also feeds the Chapter 4 integration |
+| `pain.xlsx` | 63 × 6 | The pain source: `pain_bulian` and `vas` per participant, joined into the master table and read across the Chapter 1 and Chapter 3 pain comparisons. Also carries the Euler segment choice per plane, duplicating `segment.xlsx` — the two agree for all 60 shared participants |
 | `VAS_phases.csv` | 66 × 7 | VAS at six timepoints through the protocol — the source of the acute-pain change scores |
-| `combined_data_boolian_vas.xlsx` | 65 × 5 | Pain grouping and PC1 score per participant; used by the Chapter 3 morphology comparisons and the Chapter 4 integrated dataset |
 | `Vo2max_results.xlsx` | 64 × 7 | VO₂max, Wingate peak power and training-volume variables; drives the fitness clustering |
 | `start_Times_Vo2max.csv` | 60 × 3 | Per-participant onset of the VO₂max and second-threshold windows within the continuous ramp. Without it those two phases cannot be extracted at all |
-| `segment.xlsx` | 60 × 9 | The Euler decomposition sequence chosen per participant per plane, plus outlier and coverage flags — the record of which rotation convention each participant's angles were computed with |
+| `segment.xlsx` | 60 × 9 | The Euler decomposition sequence chosen per participant per plane, plus coverage flags (`outliers`, `other`, `US`, `basic info`, `merged`) — the record of which rotation convention each participant's angles were computed with |
 | `RPE.csv` | 61 × 6 | Rating of perceived exertion per phase. Reported in the thesis; no script in the deposited pipeline reads it |
 
-**Documentation, not data.** `READ_ME.txt` is the original raw-data intake protocol: Delsys
-export conventions, participant renaming, column layout, and the MATLAB and IMF
-run order. Its file paths refer to a machine no longer in use.
+**Provenance, not data.** `READ_ME.txt` is the original raw-data intake
+protocol: Delsys export conventions, participant renaming, column layout, and
+the MATLAB and IMF run order. Its file paths refer to a machine no longer in
+use.
 
 > Column spellings are preserved exactly as the analysis code expects them,
 > including `angle horzintal` and `Sagital`.
