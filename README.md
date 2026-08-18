@@ -37,7 +37,7 @@ hand at the point where the measure is computed. It requires no programming.
 [Code availability](#code-availability).**
 
 **If you want the subject raw data, it is also not here; see
-[Code availability](#code-availability)**
+[Code availability](#code-availability).**
 
 ---
 
