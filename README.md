@@ -1,5 +1,7 @@
 # Understanding the Road Cyclist's Neck: Data and Methods Supplement
 
+[![DOI](https://zenodo.org/badge/1330748279.svg)](https://doi.org/10.5281/zenodo.21993258)
+
 This repository is the data and methods supplement to the doctoral dissertation
 called *Understanding the Road Cyclist's Neck* (by ph. candidate Lee Keidan). It contains the data
 behind the reported results, at every stage from individual participant output per phase to the
@@ -288,4 +290,23 @@ subject to approval by the Ethics Committee of Tel Aviv University.
 
 ---
 
+## Citation
 
+Cite the concept DOI, which always resolves to the current version:
+
+> Keidan, L. (2026). *Understanding the Road Cyclist's Neck: Data and Methods
+> Supplement* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21993258
+
+```bibtex
+@dataset{keidan_2026_cyclist_neck_supplement,
+  author    = {Keidan, Lee},
+  title     = {Understanding the Road Cyclist's Neck:
+               Data and Methods Supplement},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.21993258},
+  url       = {https://doi.org/10.5281/zenodo.21993258}
+}
+```
+
+Version 1.0.0 specifically is `10.5281/zenodo.21993259`.
