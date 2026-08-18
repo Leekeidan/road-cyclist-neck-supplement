@@ -55,23 +55,16 @@ hand at the point where the measure is computed. It requires no programming.
 
 ## Environment
 
-Python **3.14.2**. Pinned dependencies are in [`requirements.txt`](requirements.txt):
+Python **3.14.2**.
 
-```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
 ```
-
 Some analyses are in R (Shapiro–Wilk normality testing, Friedman and
-linear-mixed-effects models, several figures). R version was not captured at run
-time and is therefore not pinned. Packages used: `tidyverse`, `rstatix`,
+linear-mixed-effects models, several figures). Python Packages used: `tidyverse`, `rstatix`,
 `ggpubr`, `dplyr`, `readr`, `readxl`, `openxlsx`, `lme4`, `lmerTest`, `emmeans`,
 `broom`, `car`, `ez`, `effsize`, `factoextra`, `cluster`, `ggplot2`, `ggsignif`,
 `gridExtra`, `cowplot`, `grid`, `tidyr`.
 
-The signal-extraction layer requires **MATLAB**; it was not re-run for this
-supplement.
-
+The signal-extraction layer requires **MATLAB**.
 ---
 
 ## Order of analysis
@@ -79,8 +72,7 @@ supplement.
 The chain runs signal extraction, which produces a per-participant
 results tree, and every chapter analysis consumes it. The steps below name what
 each stage produces, so that any table in `data/` can be located in the chain.
-Script names are given to identify each step unambiguously; the scripts
-themselves are not deposited here (see [Code availability](#code-availability)).
+Script names identify each step unambiguously.
 
 ### 0. Extraction (MATLAB): produces the per-participant results tree
 
@@ -119,7 +111,7 @@ the correlation scripts (`angle_comparison.py`, `EMG_MVC_comparison.py`,
 `IMF_comparison.py`, `anthropometric_vs_size_correlations.py`) →
 `fitness_cluster_US.py`, `results_figures.py`, `scm_cluster_comparison.py`.
 
-### 4. Chapter 4: integration
+### 4. Chapter 4: Integration
 
 `build_integrated_dataset.py` → `ch4_integrated_analysis.py` →
 `ch4_pca_and_flip.py` → `ch4_make_figures.py` → `fig9_D1_scm_asymmetry.py`
@@ -143,11 +135,10 @@ chapter.
 ### Reading the data:
 
 **`WanT` covers a different window in the two sets of tables, by design.** The
-Chapter 1 master tables isolate the 30-second effort itself — exactly 31
-one-second bins spanning 1.0–31.0 s. The Chapter 2 co-contraction tables
-deliberately bracket it, a median of 47 populated bins (range 35–47), to
-capture the tail of the EMG response beyond the effort. Read a Wingate number should then be
-in the light of which window it comes from.
+Chapter 1 master tables isolate the 30-second effort itself, exactly 31
+one-second bins spanning 1–31 seconds. The Chapter 2 co-contraction tables
+deliberately capture the tail of the EMG response beyond the effort running more than the 31 sec WanT trial.
+A Wingate number should then be in light of which window it comes from.
 
 **One participant is absent from the Wingate analyses.** Participant 597's
 Wingate recording is problematic; that participant therefore falls out of every
@@ -158,12 +149,10 @@ Chapter 2 activation clustering, which reports 59 complete cases.
 asymmetry in Chapters 1 and 4 is left-minus-right, so positive means left
 dominant. The Chapter 3 morphology table is right-minus-left and labels its
 columns `Mean Diff (R-L)`, while the figure from the same analysis uses
-left-minus-right. Check the column header or axis label before interpreting a
-sign. See [`docs/METHOD_asymmetry.md`](docs/METHOD_asymmetry.md).
+left-minus-right. See [`docs/METHOD_asymmetry.md`](docs/METHOD_asymmetry.md).
 
 
 ### `data/per_subject/`: participant-level output, all 60 participants
-
 One folder per participant (`subject_541` … `subject_632`), 91 MB across 1,398
 files. This is the layer between the raw recordings and the group tables: any
 number reported in the dissertation can be followed back to the participant it
@@ -182,7 +171,7 @@ came from. Each folder contains, in pipeline order:
 
 Two large raw files per participant (`subject_XXX_raw_angles_results.xlsx` and
 `Vo2_Second_Threshold_Raw.csv`, together roughly 42 MB per participant and
-1.5 GB across the cohort) are **excluded**. They are unprocessed signal, require
+1.5 GB across the cohort) are **excluded**. They are unprocessed signals, require
 MATLAB and the extraction layer to be interpretable, and are available from the
 author on request.
 
@@ -196,22 +185,14 @@ The Chapter 1 analyses are all read from one of two master tables.
 | `master_all_subjects_all_phases.csv` | 15,435 | 27 | 60 participants × 5 phases, one-second bins. `subject`, `Period`, `Time (s)`, eight EMG channels as %MVC (`MTL MTR SCML SCMR STL STR UTL UTR`), three cervical angles (`angle sagital`, `angle frontal`, `angle horzintal`), pain (`vas`, `pain_bulian`), and anthropometrics/fitness (`Height_cm`, `Weight_kg`, `BMI`, `Head_Circumference_cm`, `Neck_Circumference_cm`, `Fat_Percent`, `Years_Cycling`, `Other_Sport`, `Vo2max`, `WanT`, `missing_data`) |
 | `master_all_subjects_all_phases_with_CCI.csv` | 15,435 | 39 | The same table plus the twelve `CCI_{PAIR}` columns written by `Part_4_compute_CCI.py` |
 
-Rows per phase: Warmup 3,629 · Second\_threshold 3,429 · VO2max 2,890 ·
-WanT 1,829 · Cooldown 3,658.
 
-Supporting lookups: `Anthropometric_data.xlsx` (64 rows × 15), `pain.xlsx`,
+Supporting lookups in `data/files_help/`: `Anthropometric_data.xlsx` (64 rows × 15), `pain.xlsx`,
 `VAS_phases.csv` (VAS at six timepoints), `RPE.csv`,
-`Vo2max_results.xlsx`, `combined_data_boolean_vas.xlsx` (pain grouping
-and PC1 score), `start_Times_Vo2max.csv` (per-participant onset of the VO₂max
+`Vo2max_results.xlsx`, `start_Times_Vo2max.csv` (per-participant onset of the VO₂max
 and second-threshold windows), `segment.xlsx` (per-participant Euler segment
-choice per plane), `extraction_all_phases_summary*.csv`,
-`vo2max_data_coverage_issues.csv`, and `master_dataset_summary.txt`.
+choice per plane), and `master_all_subjects_all_phases_with_CCI.csv`.
 
-`READ_ME.txt` is the author's original raw-data intake protocol (Delsys export
-conventions, participant renaming, column layout, MATLAB and IMF run order).
-Its file paths refer to a retired machine.
-
-> Column spellings are preserved exactly as the analysis code expects them,
+> Column spellings are preserved exactly as the analysis code expects them (even if they are misspelled),
 > including `angle horzintal` and `Sagital`.
 
 
@@ -220,7 +201,7 @@ Its file paths refer to a retired machine.
 | Subfolder | Contents |
 |---|---|
 | `clustering_4var_staticref/` | The reported H9 solution — the static-referenced four-variable k-means clustering, its cluster assignments, validity indices and figures |
-| `pain_analyses/` | Outputs of H1–H8: correlations between pain and angles, activation, co-contraction and asymmetry; group comparisons; acute-pain change scores |
+| `pain_analyses/` | Outputs of H1–H8: correlations between pain and angles, activation, co-contraction, and asymmetry; group comparisons; acute-pain change scores |
 | `angle_emg_correlation/` | H7 angle–EMG coupling |
 | `angle_emg_correlation_want_thirds/` | The same, split across thirds of the Wingate |
 | `angle_emg_correlation_full_vo2max/` | The same across the full VO₂max ramp |
