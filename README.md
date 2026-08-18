@@ -57,7 +57,6 @@ hand at the point where the measure is computed. It requires no programming.
 
 Python **3.14.2**.
 
-```
 Some analyses are in R (Shapiro–Wilk normality testing, Friedman and
 linear-mixed-effects models, several figures). Python Packages used: `tidyverse`, `rstatix`,
 `ggpubr`, `dplyr`, `readr`, `readxl`, `openxlsx`, `lme4`, `lmerTest`, `emmeans`,
@@ -65,6 +64,7 @@ linear-mixed-effects models, several figures). Python Packages used: `tidyverse`
 `gridExtra`, `cowplot`, `grid`, `tidyr`.
 
 The signal-extraction layer requires **MATLAB**.
+
 ---
 
 ## Order of analysis
