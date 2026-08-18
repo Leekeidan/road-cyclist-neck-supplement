@@ -33,8 +33,8 @@ measure, one moment in time through all nine stages of the analysis — naming t
 file and showing the actual value at each step, and working the arithmetic by
 hand at the point where the measure is computed. It requires no programming.
 
-**If you want the analysis code**, it is not here — see
-[Code availability](#code-availability).
+**If you want the analysis code, it is not here; see
+[Code availability](#code-availability).**
 
 **If you want the subject raw data, it is also not here; see
 [Code availability](#code-availability)**
