@@ -21,7 +21,7 @@ the integration of the three (Chapter 4).
 > not deposited here; see [Data availability](#data-availability).
 
 ---
-#**were to find**
+**Where to find**
 
 **If you want the definition of a particular form of measurement**, read
 `docs/METHOD_*.md`. Each gives the formula with every term defined, the sign
