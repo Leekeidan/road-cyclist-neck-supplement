@@ -36,7 +36,7 @@ hand at the point where the measure is computed. It requires no programming.
 **If you want the analysis code**, it is not here — see
 [Code availability](#code-availability).
 
-****If you want the subject raw data, it is also not here see
+**If you want the subject raw data, it is also not here; see
 [Code availability](#code-availability)**
 
 ---
