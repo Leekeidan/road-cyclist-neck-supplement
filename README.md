@@ -185,8 +185,8 @@ author on request.
 
 ### `data/files_help/` — the master table and its lookups
 
-Nine files: one master analysis table, seven per-participant lookups that feed
-it or the chapter analyses, and one provenance document.
+Eight files: one master analysis table, and seven per-participant lookups that
+feed it or the chapter analyses.
 
 **The master table.** Every Chapter 1 analysis reads from this.
 
@@ -209,11 +209,6 @@ participants has an extracted file, pain data and anthropometrics.
 | `start_Times_Vo2max.csv` | 60 × 3 | Per-participant onset of the VO₂max and second-threshold windows within the continuous ramp. Without it those two phases cannot be extracted at all |
 | `segment.xlsx` | 60 × 9 | The Euler decomposition sequence chosen per participant per plane, plus coverage flags (`outliers`, `other`, `US`, `basic info`, `merged`) — the record of which rotation convention each participant's angles were computed with |
 | `RPE.csv` | 61 × 6 | Rating of perceived exertion per phase. Reported in the thesis; no script in the deposited pipeline reads it |
-
-**Provenance, not data.** `READ_ME.txt` is the original raw-data intake
-protocol: Delsys export conventions, participant renaming, column layout, and
-the MATLAB and IMF run order. Its file paths refer to a machine no longer in
-use.
 
 > Column spellings are preserved exactly as the analysis code expects them,
 > including `angle horzintal` and `Sagital`.
