@@ -23,8 +23,8 @@ the integration of the three (Chapter 4).
 ---
 **Where to find**
 
-**If you want the definition of a particular form of measurement**, read
-`docs/METHOD_*.md`. Each gives the formula with every term defined, the sign
+**If you want the definition of a particular form of measurement, read
+[`docs/METHOD_*.md`](docs/METHOD_*.md)**. Each gives the formula with every term defined, the sign
 convention and units, the processing chain, the exclusions actually applied.
 
 **If you want to see how a reported number was produced**, read
