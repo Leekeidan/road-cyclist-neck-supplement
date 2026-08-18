@@ -193,7 +193,8 @@ author on request.
 | `master_all_subjects_all_phases_with_CCI.csv` | 15,435 | 39 | The same table plus the twelve `CCI_{PAIR}` columns. This is the one the pain analyses actually consume |
 
 Rows per phase: Warmup 3,629 · Second\_threshold 3,429 · VO2max 2,890 ·
-WanT 1,829 · Cooldown 3,658.
+WanT 1,829 · Cooldown 3,658. Coverage is complete: every one of the 60
+participants has an extracted file, pain data and anthropometrics.
 
 **The lookups**, each keyed by participant, that the master tables and the
 chapter analyses join against.
@@ -209,9 +210,7 @@ chapter analyses join against.
 | `segment.xlsx` | 60 × 9 | The Euler decomposition sequence chosen per participant per plane, plus outlier and coverage flags — the record of which rotation convention each participant's angles were computed with |
 | `RPE.csv` | 61 × 6 | Rating of perceived exertion per phase. Reported in the thesis; no script in the deposited pipeline reads it |
 
-**Documentation, not data.** `master_dataset_summary.txt` describes the master
-table as built — participant count, row count, rows per phase, and the full
-column list. `READ_ME.txt` is the original raw-data intake protocol: Delsys
+**Documentation, not data.** `READ_ME.txt` is the original raw-data intake protocol: Delsys
 export conventions, participant renaming, column layout, and the MATLAB and IMF
 run order. Its file paths refer to a machine no longer in use.
 
